@@ -6,20 +6,17 @@ USE test;
 DROP TABLE IF EXISTS book;
 CREATE TABLE book
 (
-  id INT AUTO_INCREMENT
-    PRIMARY KEY ,
-  title VARCHAR(100) NULL,
-  description VARCHAR(255) NULL,
-  autor VARCHAR(100) NULL,
-  isbn VARCHAR(20) NULL,
-  print_year INT NULL,
-  read_already TINYINT NULL,
-  CONSTRAINT id_UNIQUE
-  UNIQUE (id)
-)
-  ENGINE = innoDB
-  DEFAULT CHARACTER SET = utf8
-;
+    id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title varchar(100),
+    description text,
+    autor varchar(100),
+    isbn varchar(20),
+    print_year int(11),
+    read_already tinyint(4),
+    image_str varchar(255),
+    image_data mediumblob
+);
+CREATE UNIQUE INDEX id_UNIQUE ON book (id);
 
 INSERT INTO book (title, description, autor, isbn, print_year, read_already) VALUES
   ('Spring 4 для профессионалов',
